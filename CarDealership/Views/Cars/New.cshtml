@@ -1,12 +1,32 @@
+@{
+  Layout = "_Layout";
+}
+<div class="jumbotron">
+   <h1>Add a new car to the lot.</h1>
+</div>
 <form action="/cars" method="post">
- <h1>Add a new car to the lot.</h1>
-  <label for="description">Description</label>
+
+  <form id="formOne" action="/result" method="post">
+          <div class="form-group">
+           <label for="description">Description</label>
   <input id="description" name="description" type="text">
-  <label for="makeModel">Make model:</label>
+          </div>
+          <div class="form-group">
+             <label for="makeModel">Make model:</label>
   <input id="makeModel" name="makeModel" type="text">
-  <label for="price">Price:</label>
+            </div>
+            <div class="form-group">
+              <label for="price">Price:</label>
   <input id="price" name="price" type="text">
-  <label for="miles">Miles:</label>
+            </div>
+            <div class="form-group">
+             <label for="miles">Miles:</label>
   <input id="miles" name="miles" type="text">
-  <button type="submit">Submit</button>
+            </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  <br>
+  <br>
+  <a href='/cars'>See Cars</a>
+  <br>
+  <a href='/'>Home</a>
 </form>

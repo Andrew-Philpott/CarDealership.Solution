@@ -1,11 +1,17 @@
   
 @using CarDealership.Models;
 
-@if (@Model.Count == 0)
-{
-  <p>There are no cars! Good or bad business</p>
+@{
+  Layout = "_Layout";
 }
 
+<div class="jumbotron">
+  <h1>Add a Car</h1>
+</div>
+@if (@Model.Count == 0)
+{
+  <p>There are no cars! Good or bad business?</p>
+}
 <ul>
   @foreach (Car car in Model)
   {
@@ -15,3 +21,6 @@
     <li>Miles: @car.Miles</li>
   }
 </ul>
+<a href='/cars/new'>Add new car</a>
+<br>
+<a href='/'>Home<a>
