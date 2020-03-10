@@ -1,3 +1,6 @@
+using System;
+using System.Collections.Generic;
+
 namespace CarDealership.Models {
   public class Car
   {
@@ -7,7 +10,7 @@ namespace CarDealership.Models {
     public int Price {get;set;}
     public int Miles {get;set;}
     private static List<Car> _cars = new List<Car>();
-    private static int CarId {get;} = 0;
+    private static int CarId {get;set;} = 0;
     public Car(string description, string makeModel, int price, int miles)
     {
       
@@ -15,7 +18,7 @@ namespace CarDealership.Models {
       MakeModel = makeModel;
       Price = price;
       Miles = miles;
-      ++CarId;
+      CarId++;
       Id = CarId;
       _cars.Add(this);
     }
@@ -27,12 +30,18 @@ namespace CarDealership.Models {
         return false;
       }
     }
-    public List<Car> GetAll(){
+    public static List<Car> GetAll(){
         return _cars;
     }
 
-    public bool RemoveCar(){
-
+    public bool RemoveCar(int id){
+      for(int i = 0; i < _cars.Count; i++) {
+        if(_cars[id].Id == id) {
+          _cars.Remove(_cars[i]);
+          return true;
+        }
+      }
+      return false;
     }
   }
 }

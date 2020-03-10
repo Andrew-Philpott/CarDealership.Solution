@@ -1,4 +1,4 @@
-susing Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using CarDealership.Models;
 
@@ -10,8 +10,15 @@ namespace CarDealership.Controllers
     public ActionResult Index()
     {
       List<Car> allCars = Car.GetAll();
-      return View(allItems);
+      return View(allCars);
     }
 
+
+    [HttpPost("/cars/add")]
+    public ActionResult CreateForm(string description, string makeModel, int price, int miles)
+    {
+      Car newCar = new Car(description, makeModel, price, miles);
+      return View();
+    }
   }
 }
