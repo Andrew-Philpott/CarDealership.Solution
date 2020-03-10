@@ -9,6 +9,9 @@
 <ul>
   @foreach (Car car in Model)
   {
-    <li>@car.Description</li>
+    <li>Description: @car.Description</li>
+    <li>Model: @car.MakeModel</li>
+    <li>Price: @car.Price</li>
+    <li>Miles: @car.Miles</li>
   }
 </ul>

@@ -13,12 +13,17 @@ namespace CarDealership.Controllers
       return View(allCars);
     }
 
+    [HttpGet("/cars/new")]
+    public ActionResult New()
+    {
+      return View();
+    }
 
-    [HttpPost("/cars/add")]
-    public ActionResult CreateForm(string description, string makeModel, int price, int miles)
+    [HttpPost("/cars")]
+    public ActionResult New(string description, string makeModel, int price, int miles)
     {
       Car newCar = new Car(description, makeModel, price, miles);
-      return View();
+      return RedirectToAction("Index");
     }
   }
 }
